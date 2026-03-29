@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now | Bin Rasheed 3D Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .order-container {
+            padding: 150px 5%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .cart-summary {
+            padding: 2rem;
+            border-radius: 20px;
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--primary);
+            color: #000;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            transform: scale(1.05);
+            background: #fff;
+        }
+
+        .checkout-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-width: 500px;
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .thank-you {
+            display: none;
+        }
+
+
+        .remove-btn {
+            background: rgba(255, 68, 68, 0.1);
+            color: #ff4444;
+            border: 1px solid rgba(255, 68, 68, 0.2);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+        }
+
+        .remove-btn:hover {
+            background: #ff4444;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-item-name {
+            font-weight: 500;
+        }
+
+        .cart-item-price {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <nav>
+        <div class="logo">Bin Rasheed</div>
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="gallery.html">Gallery <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="gallery.html#packages" class="dropdown-item">Blessed Friday</a>
+                    <a href="gallery.html#packages" class="dropdown-item">Eid Package</a>
+                </div>
+            </li>
+            <li><a href="order.html">Order Now</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="order.html" class="cart-btn">
+                Cart (<span class="cart-count">0</span>)
+            </a>
+        </div>
+    </nav>
+
+    <div class="order-container">
+        <div>
+            <h2 class="section-title" style="text-align: left;">Available for Order</h2>
+            <div class="product-grid" style="padding: 0;">
+                <!-- Special Packages -->
+                <div class="card-3d glass package-card">
+                    <span class="premium-badge">Blessed Friday</span>
+                    <div class="card-img-container">
+                        <img src="image/premium_quality.png" alt="Blessed Friday Bundle">
+                    </div>
+                    <div class="card-info">
+                        <h4>Modern Urban Bundle</h4>
+                        <p style="text-decoration: line-through; color: var(--text-muted); font-size: 0.9rem;">$350.00
+                        </p>
+                        <p style="font-size: 1.5rem; color: #fff;">$199.99</p>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Premium Leather Jacket</li>
+                            <li><i class="fas fa-check"></i> Slim Fit Denim</li>
+                            <li><i class="fas fa-check"></i> Designer T-Shirt</li>
+                        </ul>
+                        <button class="order-btn add-to-cart" data-id="p1" data-name="Modern Urban Bundle"
+                            data-price="199.99" data-img="image/premium_quality.png">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass package-card">
+                    <span class="premium-badge">Eid Special</span>
+                    <div class="card-img-container">
+                        <img src="image/modern_fit.png" alt="Eid Festive Suit">
+                    </div>
+                    <div class="card-info">
+                        <h4>Royal Festive Set</h4>
+                        <p style="text-decoration: line-through; color: var(--text-muted); font-size: 0.9rem;">$450.00
+                        </p>
+                        <p style="font-size: 1.5rem; color: #fff;">$299.99</p>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Luxury Silk Blend Shirt</li>
+                            <li><i class="fas fa-check"></i> Tailored Formal Trousers</li>
+                            <li><i class="fas fa-check"></i> Exclusive Waistcoat</li>
+                        </ul>
+                        <button class="order-btn add-to-cart" data-id="p2" data-name="Royal Festive Set"
+                            data-price="299.99" data-img="image/modern_fit.png">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Jackets -->
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/leather jacket image-1.jpg" alt="Jacket"></div>
+                    <div class="card-info">
+                        <h4>Premium Biker</h4>
+                        <p>$199.99</p>
+                        <button class="order-btn add-to-cart" data-id="j1" data-name="Premium Biker" data-price="199.99"
+                            data-img="image/leather jacket image-1.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/leather jacket image-2.jpg" alt="Jacket"></div>
+                    <div class="card-info">
+                        <h4>Classic Brown</h4>
+                        <p>$219.99</p>
+                        <button class="order-btn add-to-cart" data-id="j2" data-name="Classic Brown" data-price="219.99"
+                            data-img="image/leather jacket image-2.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/leather jacket image-4.jpg" alt="Jacket"></div>
+                    <div class="card-info">
+                        <h4>Biker Special</h4>
+                        <p>$239.99</p>
+                        <button class="order-btn add-to-cart" data-id="j4" data-name="Biker Special" data-price="239.99"
+                            data-img="image/leather jacket image-4.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/leather jacket image-5.jpg" alt="Jacket"></div>
+                    <div class="card-info">
+                        <h4>Urban Suede</h4>
+                        <p>$249.99</p>
+                        <button class="order-btn add-to-cart" data-id="j5" data-name="Urban Suede" data-price="249.99"
+                            data-img="image/leather jacket image-5.jpg">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Sweaters -->
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men sweater image-1.jpg" alt="Sweater"></div>
+                    <div class="card-info">
+                        <h4>V-Neck Grey</h4>
+                        <p>$85.00</p>
+                        <button class="order-btn add-to-cart" data-id="s1" data-name="V-Neck Grey" data-price="85.00"
+                            data-img="image/men sweater image-1.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men sweater image-4.jpg" alt="Sweater"></div>
+                    <div class="card-info">
+                        <h4>Woolen Blue</h4>
+                        <p>$95.00</p>
+                        <button class="order-btn add-to-cart" data-id="s4" data-name="Woolen Blue" data-price="95.00"
+                            data-img="image/men sweater image-4.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men sweater image-5.jpg" alt="Sweater"></div>
+                    <div class="card-info">
+                        <h4>Premium Knit</h4>
+                        <p>$110.00</p>
+                        <button class="order-btn add-to-cart" data-id="s5" data-name="Premium Knit" data-price="110.00"
+                            data-img="image/men sweater image-5.jpg">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- T-Shirts -->
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men T-shirt-1.jpg" alt="T-Shirt"></div>
+                    <div class="card-info">
+                        <h4>Graphic White</h4>
+                        <p>$35.00</p>
+                        <button class="order-btn add-to-cart" data-id="t1" data-name="Graphic White" data-price="35.00"
+                            data-img="image/men T-shirt-1.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men T-shirt-4.jpg" alt="T-Shirt"></div>
+                    <div class="card-info">
+                        <h4>Urban Black</h4>
+                        <p>$39.00</p>
+                        <button class="order-btn add-to-cart" data-id="t4" data-name="Urban Black" data-price="39.00"
+                            data-img="image/men T-shirt-4.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men T-shirt-5.jpg" alt="T-Shirt"></div>
+                    <div class="card-info">
+                        <h4>Classic Red</h4>
+                        <p>$32.00</p>
+                        <button class="order-btn add-to-cart" data-id="t5" data-name="Classic Red" data-price="32.00"
+                            data-img="image/men T-shirt-5.jpg">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Shirts -->
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men Shirt-1.jpg" alt="Shirt"></div>
+                    <div class="card-info">
+                        <h4>Oxford White</h4>
+                        <p>$55.00</p>
+                        <button class="order-btn add-to-cart" data-id="sh1" data-name="Oxford White" data-price="55.00"
+                            data-img="image/men Shirt-1.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men Shirt-4.jpg" alt="Shirt"></div>
+                    <div class="card-info">
+                        <h4>Striped Casual</h4>
+                        <p>$60.00</p>
+                        <button class="order-btn add-to-cart" data-id="sh4" data-name="Striped Casual"
+                            data-price="60.00" data-img="image/men Shirt-4.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men Shirt-5.jpg" alt="Shirt"></div>
+                    <div class="card-info">
+                        <h4>Deep Blue</h4>
+                        <p>$65.00</p>
+                        <button class="order-btn add-to-cart" data-id="sh5" data-name="Deep Blue" data-price="65.00"
+                            data-img="image/men Shirt-5.jpg">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Jeans -->
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men jeans-1.jpg" alt="Jeans"></div>
+                    <div class="card-info">
+                        <h4>Indigo Slim</h4>
+                        <p>$89.00</p>
+                        <button class="order-btn add-to-cart" data-id="j1" data-name="Indigo Slim" data-price="89.00"
+                            data-img="image/men jeans-1.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men jeans-4.jpg" alt="Jeans"></div>
+                    <div class="card-info">
+                        <h4>Rugged Denim</h4>
+                        <p>$95.00</p>
+                        <button class="order-btn add-to-cart" data-id="j4" data-name="Rugged Denim" data-price="95.00"
+                            data-img="image/men jeans-4.jpg">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="card-3d glass">
+                    <div class="card-img-container"><img src="image/men jeans-5.jpg" alt="Jeans"></div>
+                    <div class="card-info">
+                        <h4>Dark Ash</h4>
+                        <p>$85.00</p>
+                        <button class="order-btn add-to-cart" data-id="j5" data-name="Dark Ash" data-price="85.00"
+                            data-img="image/men jeans-5.jpg">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-summary glass card-3d">
+            <h3>Cart Summary</h3>
+            <div id="cart-items">
+                <!-- JS populated -->
+            </div>
+            <div class="summary-item">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="openCheckout()">Proceed to Transaction</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="modal-content glass">
+            <div id="form-container">
+                <h2 style="color: var(--primary); margin-bottom: 2rem;">Shipping Details</h2>
+                <input type="text" placeholder="Full Name" required>
+                <input type="text" placeholder="Shipping Address" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Card Number (Demo)" required>
+                <button class="checkout-btn" onclick="completeOrder()">Complete Order</button>
+            </div>
+            <div class="thank-you" id="thank-you">
+                <h2 style="color: #4CAF50; font-size: 3rem;">Thank You!</h2>
+                <p style="margin: 2rem 0;">Your order has been placed successfully. You will receive a confirmation
+                    email shortly.</p>
+                <button class="checkout-btn" onclick="location.href='index.html'">Return to Store</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="glass" style="margin-top: 5rem;">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bin Rasheed</h3>
+                <p>Redefining men's fashion with quality and elegance. Discover the ultimate collection for the modern
+                    man.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="gallery.html">New Arrivals</a>
+                <a href="order.html">Best Sellers</a>
+                <a href="about.html">Our Story</a>
+                <a href="contact.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@binrasheed.com</p>
+                <p>Phone: +92 300 1234567</p>
+                <p>Address: Pakistan outlet head office</p>
+            </div>
+        </div>
+
+        <div class="social-links-container" style="width: 100%; text-align: center; margin-top: 3rem;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">
+                Follow Our Journey</h3>
+            <div class="social-links">
+                <a href="index.html" class="social-icon home-link" title="Home"><i class="fas fa-house"></i></a>
+                <a href="https://wa.me/923001234567" class="social-icon" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:info@binrasheed.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bin Rasheed Men Outlet. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+    <script>
+        function openCheckout() {
+            if (cart.length === 0) {
+                alert("Cart is empty!");
+                return;
+            }
+            document.getElementById('checkout-modal').style.display = 'flex';
+        }
+
+        function completeOrder() {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('thank-you').style.display = 'block';
+            localStorage.removeItem('br_cart');
+            cart = [];
+            updateCartBadge();
+        }
+
+        function renderSummary() {
+            const container = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            container.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                container.innerHTML += `
+                    <div class="cart-item-row">
+                        <div class="cart-item-info">
+                            <span class="cart-item-name">${item.name}</span>
+                            <span class="cart-item-price">$${item.price}</span>
+                        </div>
+                        <button class="remove-btn" onclick="removeFromCart(${index})" title="Remove Item">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>`;
+                total += parseFloat(item.price);
+            });
+            totalEl.innerText = `$${total.toFixed(2)}`;
+        }
+
+        // Overload updateCartBadge to also render summary
+        const oldUpdate = window.updateCartBadge;
+        window.updateCartBadge = function () {
+            if (typeof oldUpdate === 'function') oldUpdate();
+            renderSummary();
+        };
+        renderSummary();
+    </script>
+</body>
+
+</html>
