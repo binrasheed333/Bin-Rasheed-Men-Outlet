@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Bin Rasheed Men Outlet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .gallery-header {
+            padding: 150px 5% 50px;
+            text-align: center;
+            background: linear-gradient(to bottom, #111, #0a0a0a);
+        }
+
+        .filter-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .gallery-item {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <nav>
+        <div class="logo">Bin Rasheed</div>
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="gallery.html">Gallery <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="gallery.html#packages" class="dropdown-item">Blessed Friday</a>
+                    <a href="gallery.html#packages" class="dropdown-item">Eid Package</a>
+                </div>
+            </li>
+            <li><a href="order.html">Order Now</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="order.html" class="cart-btn">
+                Cart (<span class="cart-count">0</span>)
+            </a>
+        </div>
+    </nav>
+
+    <div class="gallery-header">
+        <h1 class="section-title">Our Collection</h1>
+        <div class="filter-btns">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="packages">Packages</button>
+            <button class="filter-btn" data-filter="jackets">Jackets</button>
+            <button class="filter-btn" data-filter="sweaters">Sweaters</button>
+            <button class="filter-btn" data-filter="tshirts">T-Shirts</button>
+            <button class="filter-btn" data-filter="shirts">Shirts</button>
+            <button class="filter-btn" data-filter="jeans">Jeans</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Premium Packages Section (Dedicated row) -->
+        <section id="packages" style="padding-top: 120px;">
+            <h2 class="section-title">Premium Bundles</h2>
+            <div class="product-grid" style="padding-bottom: 2rem;">
+                <div class="card-3d glass gallery-item package-card" data-category="packages">
+                    <span class="premium-badge">Blessed Friday</span>
+                    <div class="card-img-container">
+                        <img src="image/premium_quality.png" alt="Blessed Friday Bundle">
+                    </div>
+                    <div class="card-info">
+                        <h4>Modern Urban Bundle</h4>
+                        <p style="text-decoration: line-through; color: var(--text-muted); font-size: 0.9rem;">$350.00
+                        </p>
+                        <p style="font-size: 1.5rem; color: #fff;">$199.99</p>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Premium Leather Jacket</li>
+                            <li><i class="fas fa-check"></i> Slim Fit Denim</li>
+                            <li><i class="fas fa-check"></i> Designer T-Shirt</li>
+                        </ul>
+                        <a href="order.html" class="order-btn">Grab This Bundle</a>
+                    </div>
+                </div>
+                <div class="card-3d glass gallery-item package-card" data-category="packages">
+                    <span class="premium-badge">Eid Special</span>
+                    <div class="card-img-container">
+                        <img src="image/modern_fit.png" alt="Eid Festive Suit">
+                    </div>
+                    <div class="card-info">
+                        <h4>Royal Festive Set</h4>
+                        <p style="text-decoration: line-through; color: var(--text-muted); font-size: 0.9rem;">$450.00
+                        </p>
+                        <p style="font-size: 1.5rem; color: #fff;">$299.99</p>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Luxury Silk Blend Shirt</li>
+                            <li><i class="fas fa-check"></i> Tailored Formal Trousers</li>
+                            <li><i class="fas fa-check"></i> Exclusive Waistcoat</li>
+                        </ul>
+                        <a href="order.html" class="order-btn">Celebrate with Style</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="product-grid" id="gallery-grid">
+            <!-- Jackets -->
+            <div class="card-3d glass gallery-item" data-category="jackets">
+                <div class="card-img-container"><img src="image/leather jacket image-1.jpg" alt="Jacket"></div>
+                <div class="card-info">
+                    <h4>Black Leather</h4>
+                    <p>$199.99</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="jackets">
+                <div class="card-img-container"><img src="image/leather jacket image-2.jpg" alt="Jacket"></div>
+                <div class="card-info">
+                    <h4>Brown Leather</h4>
+                    <p>$219.99</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="jackets">
+                <div class="card-img-container"><img src="image/leather jacket image-4.jpg" alt="Jacket"></div>
+                <div class="card-info">
+                    <h4>Biker Special</h4>
+                    <p>$239.99</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="jackets">
+                <div class="card-img-container"><img src="image/leather jacket image-5.jpg" alt="Jacket"></div>
+                <div class="card-info">
+                    <h4>Urban Suede</h4>
+                    <p>$249.99</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="jackets">
+                <div class="card-img-container"><img src="image/leather jacket image-3.jpg" alt="Jacket"></div>
+                <div class="card-info">
+                    <h4>Classic Chic</h4>
+                    <p>$209.99</p>
+                </div>
+            </div>
+
+            <!-- Sweaters -->
+            <div class="card-3d glass gallery-item" data-category="sweaters">
+                <div class="card-img-container"><img src="image/men sweater image-1.jpg" alt="Sweater"></div>
+                <div class="card-info">
+                    <h4>V-Neck Grey</h4>
+                    <p>$85.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="sweaters">
+                <div class="card-img-container"><img src="image/men sweater image-4.jpg" alt="Sweater"></div>
+                <div class="card-info">
+                    <h4>Woolen Blue</h4>
+                    <p>$95.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="sweaters">
+                <div class="card-img-container"><img src="image/men sweater image-5.jpg" alt="Sweater"></div>
+                <div class="card-info">
+                    <h4>Premium Knit</h4>
+                    <p>$110.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="sweaters">
+                <div class="card-img-container"><img src="image/men sweater image-2.jpg" alt="Sweater"></div>
+                <div class="card-info">
+                    <h4>Turtle Neck</h4>
+                    <p>$89.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="sweaters">
+                <div class="card-img-container"><img src="image/men sweater image-3.jpg" alt="Sweater"></div>
+                <div class="card-info">
+                    <h4>Cable Knit</h4>
+                    <p>$105.00</p>
+                </div>
+            </div>
+
+            <!-- T-Shirts -->
+            <div class="card-3d glass gallery-item" data-category="tshirts">
+                <div class="card-img-container"><img src="image/men T-shirt-1.jpg" alt="T-Shirt"></div>
+                <div class="card-info">
+                    <h4>Graphic White</h4>
+                    <p>$35.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="tshirts">
+                <div class="card-img-container"><img src="image/men T-shirt-4.jpg" alt="T-Shirt"></div>
+                <div class="card-info">
+                    <h4>Urban Black</h4>
+                    <p>$39.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="tshirts">
+                <div class="card-img-container"><img src="image/men T-shirt-5.jpg" alt="T-Shirt"></div>
+                <div class="card-info">
+                    <h4>Classic Red</h4>
+                    <p>$32.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="tshirts">
+                <div class="card-img-container"><img src="image/men T-shirt-2.jpg" alt="T-Shirt"></div>
+                <div class="card-info">
+                    <h4>Plain Polo</h4>
+                    <p>$45.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="tshirts">
+                <div class="card-img-container"><img src="image/men T-shirt-3.jpg" alt="T-Shirt"></div>
+                <div class="card-info">
+                    <h4>Sporty V-Neck</h4>
+                    <p>$28.00</p>
+                </div>
+            </div>
+
+            <!-- Shirts -->
+            <div class="card-3d glass gallery-item" data-category="shirts">
+                <div class="card-img-container"><img src="image/men Shirt-1.jpg" alt="Shirt"></div>
+                <div class="card-info">
+                    <h4>Oxford White</h4>
+                    <p>$55.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="shirts">
+                <div class="card-img-container"><img src="image/men Shirt-4.jpg" alt="Shirt"></div>
+                <div class="card-info">
+                    <h4>Striped Casual</h4>
+                    <p>$60.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="shirts">
+                <div class="card-img-container"><img src="image/men Shirt-5.jpg" alt="Shirt"></div>
+                <div class="card-info">
+                    <h4>Deep Blue Formal</h4>
+                    <p>$65.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="shirts">
+                <div class="card-img-container"><img src="image/men Shirt-2.jpg" alt="Shirt"></div>
+                <div class="card-info">
+                    <h4>Slim Fit Linen</h4>
+                    <p>$58.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="shirts">
+                <div class="card-img-container"><img src="image/men Shirt-3.jpg" alt="Shirt"></div>
+                <div class="card-info">
+                    <h4>Checkered Style</h4>
+                    <p>$52.00</p>
+                </div>
+            </div>
+
+            <!-- Jeans -->
+            <div class="card-3d glass gallery-item" data-category="jeans">
+                <div class="card-img-container"><img src="image/men jeans-1.jpg" alt="Jeans"></div>
+                <div class="card-info">
+                    <h4>Indigo Slim</h4>
+                    <p>$89.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="jeans">
+                <div class="card-img-container"><img src="image/men jeans-4.jpg" alt="Jeans"></div>
+                <div class="card-info">
+                    <h4>Rugged Denim</h4>
+                    <p>$95.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="jeans">
+                <div class="card-img-container"><img src="image/men jeans-5.jpg" alt="Jeans"></div>
+                <div class="card-info">
+                    <h4>Dark Ash</h4>
+                    <p>$85.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="jeans">
+                <div class="card-img-container"><img src="image/men jeans-2.jpg" alt="Jeans"></div>
+                <div class="card-info">
+                    <h4>Straight Black</h4>
+                    <p>$79.00</p>
+                </div>
+            </div>
+            <div class="card-3d glass gallery-item" data-category="jeans">
+                <div class="card-img-container"><img src="image/men jeans-3.jpg" alt="Jeans"></div>
+                <div class="card-info">
+                    <h4>Distressed Blue</h4>
+                    <p>$92.00</p>
+                </div>
+            </div>
+    </main>
+
+    <footer class="glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bin Rasheed</h3>
+                <p>Redefining men's fashion with quality and elegance. Discover the ultimate collection for the modern
+                    man.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="gallery.html">New Arrivals</a>
+                <a href="order.html">Best Sellers</a>
+                <a href="about.html">Our Story</a>
+                <a href="contact.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@binrasheed.com</p>
+                <p>Phone: +92 300 1234567</p>
+                <p>Address: Pakistan outlet head office</p>
+            </div>
+        </div>
+
+        <div class="social-links-container" style="width: 100%; text-align: center; margin-top: 3rem;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">
+                Follow Our Journey</h3>
+            <div class="social-links">
+                <a href="index.html" class="social-icon home-link" title="Home"><i class="fas fa-house"></i></a>
+                <a href="https://wa.me/923001234567" class="social-icon" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:info@binrasheed.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bin Rasheed Men Outlet. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

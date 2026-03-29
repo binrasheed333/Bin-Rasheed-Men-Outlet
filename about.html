@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Bin Rasheed Men Outlet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .about-hero {
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('image/cover iamge-1.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        .about-content {
+            padding: 100px 15%;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .brand-milestone {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <nav>
+        <div class="logo">Bin Rasheed</div>
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="gallery.html">Gallery <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="gallery.html#packages" class="dropdown-item">Blessed Friday</a>
+                    <a href="gallery.html#packages" class="dropdown-item">Eid Package</a>
+                </div>
+            </li>
+            <li><a href="order.html">Order Now</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="order.html" class="cart-btn">
+                Cart (<span class="cart-count">0</span>)
+            </a>
+        </div>
+    </nav>
+
+    <div class="about-hero">
+        <h1 class="section-title" style="color: white; font-size: 4rem;">Our Legacy</h1>
+    </div>
+
+    <div class="about-content">
+        <p>Bin Rasheed Men Outlet started with a vision to bring premium, high-quality fashion to the modern man. We
+            believe that style is not just about clothes, but about the confidence and character they bring out in you.
+            Our collections are carefully curated, blending classic craftsmanship with contemporary 3D-inspired designs.
+        </p>
+
+        <div class="brand-milestone">
+            <div class="card-3d glass">
+                <div class="card-img-container">
+                    <img src="image/premium_quality.png" alt="Premium Quality">
+                </div>
+                <div class="card-info">
+                    <h3>Premium Quality</h3>
+                    <p>We use only the finest materials, from Italian leathers to Pakistani cottons.</p>
+                </div>
+            </div>
+            <div class="card-3d glass">
+                <div class="card-img-container">
+                    <img src="image/modern_fit.png" alt="Modern Fit">
+                </div>
+                <div class="card-info">
+                    <h3>Modern Fit</h3>
+                    <p>Designed for the urban explorer, our fits are tailored to perfection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bin Rasheed</h3>
+                <p>Redefining men's fashion with quality and elegance. Discover the ultimate collection for the modern
+                    man.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="gallery.html">New Arrivals</a>
+                <a href="order.html">Best Sellers</a>
+                <a href="about.html">Our Story</a>
+                <a href="contact.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@binrasheed.com</p>
+                <p>Phone: +92 300 1234567</p>
+                <p>Address: Pakistan outlet head office</p>
+            </div>
+        </div>
+
+        <div class="social-links-container" style="width: 100%; text-align: center; margin-top: 3rem;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">
+                Follow Our Journey</h3>
+            <div class="social-links">
+                <a href="index.html" class="social-icon home-link" title="Home"><i class="fas fa-house"></i></a>
+                <a href="https://wa.me/923001234567" class="social-icon" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:info@binrasheed.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bin Rasheed Men Outlet. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>

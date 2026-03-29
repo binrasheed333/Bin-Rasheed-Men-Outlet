@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bin Rasheed Men Outlet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .contact-container {
+            padding: 150px 5%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+            padding: 3rem;
+            transform-style: preserve-3d;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary);
+            color: #000;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <nav>
+        <div class="logo">Bin Rasheed</div>
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="gallery.html">Gallery <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="gallery.html#packages" class="dropdown-item">Blessed Friday</a>
+                    <a href="gallery.html#packages" class="dropdown-item">Eid Package</a>
+                </div>
+            </li>
+            <li><a href="order.html">Order Now</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="order.html" class="cart-btn">
+                Cart (<span class="cart-count">0</span>)
+            </a>
+        </div>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-form glass card-3d">
+            <h2 class="section-title" style="padding: 0 0 2rem;">Get In Touch</h2>
+            <form>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Your Message"></textarea>
+                </div>
+                <button type="button" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bin Rasheed</h3>
+                <p>Redefining men's fashion with quality and elegance. Discover the ultimate collection for the modern
+                    man.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="gallery.html">New Arrivals</a>
+                <a href="order.html">Best Sellers</a>
+                <a href="about.html">Our Story</a>
+                <a href="contact.html">Support</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@binrasheed.com</p>
+                <p>Phone: +92 300 1234567</p>
+                <p>Address: Pakistan outlet head office</p>
+            </div>
+        </div>
+
+        <div class="social-links-container" style="width: 100%; text-align: center; margin-top: 3rem;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">
+                Follow Our Journey</h3>
+            <div class="social-links">
+                <a href="index.html" class="social-icon home-link" title="Home"><i class="fas fa-house"></i></a>
+                <a href="https://wa.me/923001234567" class="social-icon" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:info@binrasheed.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bin Rasheed Men Outlet. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
